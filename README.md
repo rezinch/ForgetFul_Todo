@@ -55,13 +55,13 @@ For Software:
 *Task getting mutated*
 
 # Diagrams
-![Workflow](https://i.ibb.co/S1fPhth/wf.png))
+![Workflow](https://i.ibb.co/S1fPhth/wf.png)
 
 
 
 ### Project Demo
 # Video
-[[Video](https://drive.google.com/file/d/1LWOLwGAlACoxL1iuPLHwdjNl0TOlXbOL/view?usp=sharing)]
+[Video](https://drive.google.com/file/d/1LWOLwGAlACoxL1iuPLHwdjNl0TOlXbOL/view?usp=sharing)
 *This video shows how the website works*
 
 
