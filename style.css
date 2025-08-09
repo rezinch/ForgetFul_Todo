@@ -23,6 +23,9 @@ body {
     top: 20px;
     left: 20px;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .header-buttons-right {
@@ -51,6 +54,60 @@ body {
     background-color: #444;
 }
 
+/* --- Switch Styles --- */
+.auto-mutate-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.switch-label {
+    font-size: 0.9em;
+    color: #aaa;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444;
+    transition: .4s;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: #bb86fc;
+}
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+.slider.round {
+    border-radius: 28px;
+}
+.slider.round:before {
+    border-radius: 50%;
+}
+/* --- End Switch Styles --- */
 
 h1 {
     text-align: center;
@@ -103,45 +160,6 @@ h1 {
     justify-content: space-between;
 }
 
-/* --- LIGHT MODE STYLES --- */
-body.light-mode {
-    background-color: #f0f2f5;
-    color: #1c1e21;
-}
-
-body.light-mode h1 {
-    color: #000000;
-}
-
-body.light-mode #theme-toggle-btn, 
-body.light-mode #mutate-all-btn {
-    background: #e4e6eb;
-    color: #000;
-    border-color: #ccc;
-}
-
-body.light-mode #theme-toggle-btn:hover,
-body.light-mode #mutate-all-btn:hover {
-    background-color: #dcdfe2;
-}
-
-
-body.light-mode #task-input {
-    background-color: #ffffff;
-    border: 1px solid #ccd0d5;
-    color: #1c1e21;
-}
-
-body.light-mode #add-task-btn {
-    background-color: #1877f2;
-    color: #ffffff;
-}
-
-body.light-mode .task-item {
-    background-color: #ffffff;
-    border-left-color: #1877f2;
-}
-
 .delete-btn {
     background: transparent;
     border: none;
@@ -149,9 +167,74 @@ body.light-mode .task-item {
     cursor: pointer;
     font-size: 1.2em;
     padding: 5px;
-    margin-left: auto; /* Pushes the button to the right */
+    margin-left: auto;
+}
+.delete-btn:hover { color: #ff0000; }
+
+/* --- LIGHT MODE STYLES --- */
+body.light-mode {
+    background-color: #f0f2f5;
+    color: #1c1e21;
+}
+body.light-mode h1 { color: #000000; }
+body.light-mode #theme-toggle-btn, 
+body.light-mode #mutate-all-btn {
+    background: #e4e6eb;
+    color: #000;
+    border-color: #ccc;
+}
+body.light-mode #theme-toggle-btn:hover,
+body.light-mode #mutate-all-btn:hover {
+    background-color: #dcdfe2;
+}
+body.light-mode #task-input {
+    background-color: #ffffff;
+    border: 1px solid #ccd0d5;
+    color: #1c1e21;
+}
+body.light-mode #add-task-btn {
+    background-color: #1877f2;
+    color: #ffffff;
+}
+body.light-mode .task-item {
+    background-color: #ffffff;
+    border-left-color: #1877f2;
 }
 
-.delete-btn:hover {
-    color: #ff0000;
+/* --- NEW: Loader Styles --- */
+.loader {
+    /* Style */
+    border: 3px solid #444; /* Darker border */
+    border-top: 3px solid #bb86fc; /* Purple to match theme */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    
+    /* Visibility */
+    visibility: hidden; /* Hide by default */
+    opacity: 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Show the loader when the switch is active */
+.auto-mutate-switch.active .loader {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* This class will be toggled by JS to trigger the animation */
+.loader.is-mutating {
+    animation: spin 1s linear;
+}
+
+/* Keyframe animation for the spin */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Light mode variant */
+body.light-mode .loader {
+    border-color: #dcdfe2;
+    border-top-color: #1877f2;
 }
