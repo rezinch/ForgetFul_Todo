@@ -1,0 +1,14 @@
+{
+  "name": "forgetful-todo",
+  "version": "0.1.0",
+  "description": "A fun and forgetful todo app that helps you forget your tasks.",
+  "main": "script.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
