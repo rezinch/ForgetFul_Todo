@@ -1,0 +1,12 @@
+[build]
+  command = "echo 'No build command needed'"
+  publish = "."
+
+
+  [functions]
+  node_bundler = "esbuild"
+  directory = "netlify/functions"
+
+[functions."mutate"]
+  external_node_modules = []
+  node_version = "20"

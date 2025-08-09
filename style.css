@@ -131,3 +131,17 @@ body.light-mode .task-item {
 .delete-btn:hover {
     color: #ff0000;
 }
+
+.mutate-btn {
+    background: transparent;
+    border: none;
+    color: #58a6ff;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px;
+    margin-left: auto; /* Pushes the buttons to the right */
+}
+
+.mutate-btn:hover {
+    color: #80baff;
+}
