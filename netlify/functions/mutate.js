@@ -11,7 +11,7 @@ exports.handler = async function (event) {
 
     const requestBody = {
         contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.8, maxOutputTokens: 50 },
+        generationConfig: { temperature: 0.8, maxOutputTokens: 200 },
     };
 
     try {
