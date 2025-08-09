@@ -45,7 +45,7 @@ netlify dev
 For Software:
 
 # Screenshots 
-![Screenshot1](https://ibb.co/8nJ3Sxdh/ss1.png)
+![Screenshot1](https://i.ibb.co/ymDTbkY3/ss1.png)
 *Landing page *
 
 ![Screenshot2](https://i.ibb.co/TDVMZZGJ/ss2.png)
@@ -55,14 +55,14 @@ For Software:
 *Task getting mutated*
 
 # Diagrams
-![Workflow]
+![Workflow](https://i.ibb.co/S1fPhth/wf.png))
 
 
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+[[Video](https://drive.google.com/file/d/1LWOLwGAlACoxL1iuPLHwdjNl0TOlXbOL/view?usp=sharing)]
+*This video shows how the website works*
 
 
 ## Team Contributions
