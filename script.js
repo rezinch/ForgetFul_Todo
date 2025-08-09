@@ -30,15 +30,42 @@ window.addEventListener('DOMContentLoaded', () => {
         renderTasks();
     }
 
-    function renderTasks() {
-        taskListContainer.innerHTML = '';
-        tasks.forEach(task => {
-            const taskElement = document.createElement('div');
-            taskElement.className = 'task-item';
-            taskElement.innerText = task.current;
-            taskListContainer.appendChild(taskElement);
+ function renderTasks() {
+    taskListContainer.innerHTML = ''; // Clear the current list
+    tasks.forEach(task => {
+        const taskElement = document.createElement('div');
+        taskElement.className = 'task-item';
+
+        // Create a span for the task text
+        const taskTextElement = document.createElement('span');
+        taskTextElement.innerText = task.current;
+
+        // Create the delete button
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerText = '🗑️';
+        deleteBtn.className = 'delete-btn';
+
+        // Add an event listener to the delete button
+        deleteBtn.addEventListener('click', () => {
+            deleteTask(task.id);
         });
-    }
+
+        // Add the text and button to the task item
+        taskElement.appendChild(taskTextElement);
+        taskElement.appendChild(deleteBtn);
+
+        // Add the task item to the main list container
+        taskListContainer.appendChild(taskElement);
+    });
+}
+
+function deleteTask(taskId) {
+    // Create a new array containing every task EXCEPT the one with the matching ID
+    tasks = tasks.filter(task => task.id !== taskId);
+
+    // Save the new, smaller list and update the screen
+    saveAndRender();
+}
     // --- End of functions ---
 
 

@@ -118,3 +118,16 @@ body.light-mode .task-item {
     background-color: #ffffff;
     border-left-color: #1877f2;
 }
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #ff5555;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+.delete-btn:hover {
+    color: #ff0000;
+}
