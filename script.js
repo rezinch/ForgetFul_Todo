@@ -1,10 +1,14 @@
 window.addEventListener('DOMContentLoaded', () => {
+    // All element selections and event listeners should be inside here
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const body = document.body;
     const taskInput = document.getElementById('task-input');
     const addTaskBtn = document.getElementById('add-task-btn');
     const taskListContainer = document.getElementById('task-list');
 
     let tasks = JSON.parse(localStorage.getItem('forgetful_tasks')) || [];
 
+    // --- All your functions like addTask, saveAndRender, etc. go here ---
     function addTask() {
         const taskText = taskInput.value.trim();
         if (taskText === '') return;
@@ -35,11 +39,38 @@ window.addEventListener('DOMContentLoaded', () => {
             taskListContainer.appendChild(taskElement);
         });
     }
+    // --- End of functions ---
 
+
+    // --- All your event listeners go here ---
     addTaskBtn.addEventListener('click', addTask);
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') addTask();
     });
 
+    // Event listener for the theme toggle button
+    themeToggleBtn.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+
+        if (body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            themeToggleBtn.innerText = '🌙';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            themeToggleBtn.innerText = '☀️';
+        }
+    });
+    // --- End of event listeners ---
+
+
+    // --- Code to run on page load goes here ---
+    // Load saved theme and apply it
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        themeToggleBtn.innerText = '🌙';
+    }
+
+    // Initial render of tasks
     renderTasks();
 });
